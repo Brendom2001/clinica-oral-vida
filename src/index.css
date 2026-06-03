@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ocean: #1B4F72;
+  --ocean-dark: #153D5A;
+  --ocean-light: #2E6B99;
+  --gold: #C9A84C;
+  --gold-light: #D9B96A;
+  --bg-alt: #F4F6F8;
+  --white: #FFFFFF;
+  --text-main: #1A2332;
+  --text-muted: #6B7A8D;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --space-section: 6rem;
+  --radius-card: 1rem;
+  --transition-base: 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-main);
+  background: #fff;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+/* Wave separator */
+.wave-divider {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grain overlay */
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ocean);
+  border-radius: 3px;
+}
+
+/* Selection */
+::selection {
+  background: var(--gold);
+  color: #fff;
+}
+
+/* Clip path wave */
+.clip-wave {
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+}
+
+.clip-wave-reverse {
+  clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Active link underline */
+.nav-link-active::after {
+  transform: scaleX(1) !important;
+}
